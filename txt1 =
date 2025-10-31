@@ -1,0 +1,33 @@
+import os 
+os.system("cls")
+
+from dataclasses import dataclass
+
+@dataclass
+
+class Aluno:
+    nome: str 
+    idade: int 
+    email: str 
+    Teleforne: float
+
+quantidade_alunos = 2 
+lista_alunos = []
+
+print("Solicitando dados do aluno. ")
+for i in range(quantidade_alunos):
+    aluno = Aluno(nome=input("Digite seu Nome:"),
+                  idade=input("Digite sua idade: "),
+                  email=input("Digite seu Email: "),
+                  Teleforne=input("Digite seu Teleforne: "))
+    lista_alunos.append(aluno)
+    os.system("cls")
+    
+print("\n")
+print("Salvando dados.")
+arquivo = "dados_alunos.txt"
+
+with open(arquivo, "a") as arquivo_alunos:
+    for aluno in lista_alunos:
+        arquivo_alunos.write(f"Seu Nome: {aluno.nome} , Sua idade: {aluno.idade}, Seu Email: {aluno.email} , Seu Teleforne: {aluno.Teleforne} \n ")
+    print("Salvo com sucesso!")
