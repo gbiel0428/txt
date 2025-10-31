@@ -1,0 +1,25 @@
+import os 
+os.system("cls")
+
+from dataclasses import dataclass
+
+@dataclass
+
+class Dados:
+    Nome: str 
+    Autor: str 
+    Categoria: str 
+    preco: float 
+    
+
+Usuario = Dados(Nome=input("Informe o Nome do livro: "),
+                    Autor=input("Informe o Autor do livro: "),
+                    Categoria=input("Informe a Categoria do livro:  "),
+                    preco=input("Informe o Preço do livro: "))
+   
+    
+arquivo = "Dados.txt"
+
+with open( arquivo ,"a") as arquivo_dados:
+    arquivo_dados.write(f"Nome do livro: {Usuario.Nome}, Nome do Autor: {Usuario.Autor}, Categoria do livro: {Usuario.Categoria}, Preço: R$ {Usuario.preco}")
+    print("salvado")
